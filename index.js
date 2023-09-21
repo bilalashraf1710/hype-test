@@ -21,7 +21,7 @@ app.post("/export-pdf", async (req, res) => {
 
     const browser = await puppeteer.launch({
       headless: "new",
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+      args: ["--no-sandbox"],
     });
 
     const page = await browser.newPage();
