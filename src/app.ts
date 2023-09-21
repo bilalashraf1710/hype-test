@@ -6,7 +6,7 @@ const app = express()
 
 app.use(express.json())
 
-const Port = 8000
+const Port = process.env.PORT || 8000
 
 app.get('/', function(req,res) {
     res.send("Hello")
