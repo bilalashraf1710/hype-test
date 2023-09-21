@@ -2,7 +2,9 @@ const express = require("express");
 const puppeteer = require("puppeteer");
 
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
+
+console.log("In the App");
 
 app.use(express.json());
 
@@ -19,12 +21,7 @@ app.post("/export-pdf", async (req, res) => {
 
     const browser = await puppeteer.launch({
       headless: "new",
-      args: [
-        "--no-sandbox",
-        "--disable-setuid-sandbox",
-        "--disable-dev-shm-usage",
-        "--single-process",
-      ],
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
     });
 
     const page = await browser.newPage();
