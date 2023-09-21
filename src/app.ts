@@ -24,7 +24,7 @@ app.post("/export-pdf", async (req, res) => {
       console.log("At the Center of EXPORT PDF API CALL", fullHtml);
   
       const browser = await puppeteer.launch({
-        headless: true,
+        headless: "new",
         args: ["--no-sandbox"],
       });
   
